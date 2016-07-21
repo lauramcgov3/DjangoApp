@@ -141,7 +141,8 @@ SOCIAL_AUTH_FACEBOOK_KEY = '1792034341009578'
 SOCIAL_AUTH_FACEBOOK_SECRET = 'b9f40b442783a6f6267bec7d3a96788a'
 SOCIAL_AUTH_TWITTER_KEY = 'XrgTeoAI2tfDp0XnQqqroCVNg'
 SOCIAL_AUTH_TWITTER_SECRET = 'N9vvEcn8qJ7JjCUdautomeb7ecBlmqsCtexbW99o4L81iTLs0z'
-
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '932847439361-mem1dl28gl9dtuu9tpn6pd2p8478n2nt.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'fh1o6bttFERTd_TmuWTS7ctP'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
