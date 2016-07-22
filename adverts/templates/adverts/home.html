@@ -1,32 +1,30 @@
-{% extends 'base.html' %} {% block main %}
-
-<p>
-    <ul>
-        {% if user and not user.is_anonymous %}
-        <div class=jumbotron>
-            <h1>Logged in</h1>
-        </div>
-        <div>
-            <li>
-                <a>Hello {{ user.get_full_name|default:user.username }}!</a>
-            </li>
-            <li>
-                <a href="{% url 'auth:logout' %}?next={{ request.path }}">Logout</a>
-            </li>
-            {% else %}
-            <div class=jumbotron>
-                <h1>Adverts Login</h1>
-            <li>
-                <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Login with Facebook</a>
-            </li>
-            <li>
-                <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}">Login with Google</a>
-            </li>
-            <li>
-                <a href="{% url 'social:begin' 'twitter' %}?next={{ request.path }}">Login with Twitter</a>
-            </li>
-            {% endif %}
-    </ul>
-</p>
+{% extends 'base.html' %} {% block main %} {% if user and not user.is_anonymous %}
+<div class=jumbotron>
+    <h1 align='centered'>Hello {{ user.get_full_name|default:user.username }}!</h1>
 </div>
-{% endblock %}
+<div>
+    <a href="{% url 'auth:logout' %}?next={{ request.path }}" class="btn btn-warning">
+        Logout
+    </a>
+</div>
+
+{% else %}
+<div class=jumbotron>
+    <h1 align="center">Adverts Home</h1>
+</div>
+<!-- Single button -->
+<div class='wrapper text-center'>
+    <div class="btn-group-vertical text-center" role="group" text-align="center">
+
+        <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}" class="btn btn-info" role="button">
+            Login with Facebook
+        </a>
+        <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}" class="btn btn-primary" role="button">
+            Login with Google
+        </a>
+        <a href="{% url 'social:begin' 'twitter' %}?next={{ request.path }}" class="btn btn-default" role="button">
+            Login with Twitter
+        </a>
+    </div>
+</div>
+{% endif %} {% endblock %}
