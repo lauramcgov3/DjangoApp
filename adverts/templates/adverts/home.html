@@ -1,6 +1,8 @@
-{% extends 'base.html' %} {% block main %} {% if user and not user.is_anonymous %}
+{% extends 'base.html' %} {% block main %} 
+
+{% if user and not user.is_anonymous %}
 <div class=jumbotron>
-    <h1 align='centered'>Hello {{ user.get_full_name|default:user.username }}!</h1>
+    <h1 align='centered'>Hello, {{ user.get_full_name|default:user.username }}!</h1>
 </div>
 <div>
     <a href="{% url 'auth:logout' %}?next={{ request.path }}" class="btn btn-warning">
@@ -14,17 +16,21 @@
 </div>
 <!-- Single button -->
 <div class='wrapper text-center'>
-    <div class="btn-group-vertical text-center" role="group" text-align="center">
+    <div class="btn-group-vertical text-center btn-lg" role="group" >
 
         <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}" class="btn btn-info" role="button">
+            <i class="fa fa-facebook"></i> &nbsp;&nbsp;
             Login with Facebook
         </a>
         <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}" class="btn btn-primary" role="button">
+            <i class="fa fa-google"></i>&nbsp;&nbsp;&nbsp;
             Login with Google
         </a>
         <a href="{% url 'social:begin' 'twitter' %}?next={{ request.path }}" class="btn btn-default" role="button">
+            <i class="fa fa-twitter"></i>&nbsp;&nbsp;&nbsp;
             Login with Twitter
         </a>
     </div>
 </div>
-{% endif %} {% endblock %}
+{% endif %} 
+{% endblock %}
